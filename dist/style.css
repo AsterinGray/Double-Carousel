@@ -1,0 +1,74 @@
+body,
+html {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-content,
+.right-content {
+  position: relative;
+  height: 100%;
+  width: 50%;
+  font-size: 5rem;
+  margin: auto;
+  /* overflow: hidden; */
+}
+
+.left-content > .content.active {
+  transform-origin: top center;
+}
+
+.left-content > .content {
+  width: 100%;
+  position: absolute;
+  background-color: aqua;
+  transform-origin: bottom center;
+}
+
+@keyframes Anim {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes DeAnim {
+  from {
+    transform: scaleY(1);
+  }
+  to {
+    transform: scaleY(0);
+  }
+}
+
+.right-content > .content.active {
+  transform-origin: bottom center;
+}
+
+.right-content > .content {
+  width: 100%;
+  background-color: brown;
+  position: absolute;
+  transform-origin: top center;
+}
+
+.container .content {
+  height: 100%;
+  transform: scaleY(0);
+  animation: DeAnim 1s 1;
+}
+
+.container .content.active {
+  transform: scaleY(1);
+  animation: Anim 1s 1;
+}
